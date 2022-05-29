@@ -31,4 +31,5 @@ python3 Chatbot_v2.0/chatbot.py
 
 ---
 > Train과정을 통해 주어진 문장의 label을 구하여 v.10보다 더 정확하게 유사도를 구할 수 있고, 그 기능을 활용하여 대답을 얻을 수 있습니다.
+notebook폴더 내부의 tutorial을 통해 chatbot v2.0버전을 간단히 확인할 수 있습니다.
 ---
