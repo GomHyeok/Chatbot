@@ -15,7 +15,7 @@ def seed_everything(seed: int = 4523):
     torch.backends.cudnn.benchmark = True  # type: ignore
 
 #predict함수
-def sentences_predict(sent, model):
+def sentences_predict(sent, model, tokenizer, device):
     model.eval()
     tokenized_sent = tokenizer(
             sent,
@@ -38,3 +38,25 @@ def sentences_predict(sent, model):
     result = np.argmax(logits)
     return result
 
+
+def get_cls_token(sent, model_cls, tokenizer_cls): 
+    model_cls.eval()
+    tokenized_sent = tokenizer_cls(
+      sent,
+      return_tensors = "pt",
+      truncation = True,
+      add_special_tokens=True,
+      max_length = 128
+    )
+    with torch.no_grad():
+        outputs = model_cls(**tokenized_sent)
+    logits = outputs.last_hidden_state[:,0,:].detach().cpu().numpy()
+    return logits
+
+
+def find_Badword(sent, slang_list):
+    Badin = False
+    for word in slang_list :
+        if word in sent :
+            Badin = True
+    return Badin
