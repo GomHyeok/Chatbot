@@ -1,11 +1,10 @@
-# 📙Chatbot
+# Chatbot
+---
+## Chatbot_v1.0
 
-## 📘Chatbot_v1.0
+### Requirements
 
-### 📗요구사항
->욕설을 구분하기 위한 Data를 위해 git clone을 해야한다
-
-- transformer 사용을 위한 철치
+- transformer install
 ```
 pip install transformers
 ```
@@ -16,13 +15,21 @@ git clone https://github.com/doublems/korean-bad-words
 git clone https://github.com/organization/Gentleman/
 ```
 
-### 📗목표
-> 주어진 Data와 Pretrain된 BERT모델를 활용하여 주어진 문장에 대하여 옳바른 답변을 출력한다.
+---
+> BERT_Chatbot.ipynb를 통해 욕설 구분기능과 CLS토큰을 통한 유사도 측정을 할 수 있습니다.
+---
+## Chatbot_v2.0
 
-## 📘Chatbot_v2.0
+### Train
+```
+python3 Chatbot_v2.0/train.py 
+```
+### Chatbot
+```
+python3 Chatbot_v2.0/chatbot.py
+```
 
-### 📗요구사항
->Easy 버전과 요구사항은 같다.
-
-### 📗목표
-> 주어진 Data를 모델을 통해 학습시켜 label을 추출하고, 해당 label을 통해 답변의 범위를 줄여서 정확도를 올린다.
+---
+> Train과정을 통해 주어진 문장의 label을 구하여 v.10보다 더 정확하게 유사도를 구할 수 있고, 그 기능을 활용하여 대답을 얻을 수 있습니다.
+notebook폴더 내부의 tutorial을 통해 chatbot v2.0버전을 간단히 확인할 수 있습니다.
+---
